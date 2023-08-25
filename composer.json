@@ -1,0 +1,14 @@
+{
+    "name": "nigromante/framework",
+    "description": "Framework Simple",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/"
+        }
+    },
+    "require": {},
+    "minimum-stability": "stable" 
+}
