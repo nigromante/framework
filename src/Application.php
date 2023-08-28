@@ -2,30 +2,35 @@
 
 namespace Nigromante\Framework;
 
-use Nigromante\Framework\FileLog;
-use Nigromante\Framework\Router;
-
 
 class Application
 {
+
+    public $config ;   
+
+    public function __construct( $config ) {
+        $this->config = $config ; 
+    }
+
 
     public function run() {
 
         try {
 
-            dump_group( 'Application', 'Application' ) ; 
-            dumpsection( 'Guitar' , 'Name' ) ;
+            Dump::getInstance()->dump_group( 'Application', 'Application' ) ; 
+
+            Dump::getInstance()->dumpsection( 'Guitar' , 'Name' ) ;
     
-            dump_group( 'Routes', 'Routes' ) ; 
-            dumpsection( Router::list() , 'All Routes' ) ;
+            Dump::getInstance()->dump_group( 'Routes', 'Routes' ) ; 
+            Dump::getInstance()->dumpsection( Router::list() , 'All Routes' ) ;
     
             $uri = $_SERVER["REQUEST_URI"] ; 
             $method = $_SERVER["REQUEST_METHOD"] ; 
 
             $workRoute = Router::evalRequest( $uri, $method );
 
-            dump_group( 'Route', 'Route' ) ; 
-            dumpsection( $workRoute , 'workRoute' ) ;
+            Dump::getInstance()->dump_group( 'Route', 'Route' ) ; 
+            Dump::getInstance()->dumpsection( $workRoute , 'workRoute' ) ;
 
             $response = Router::dispatch($workRoute, $uri, $method );
 

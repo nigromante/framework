@@ -14,11 +14,9 @@ class FileLog
     public static function Alert($msg)
     {
 
-        global $ClientIpAddress;
-
         $date = date('d.m.Y h:i:s');
 
-        $log = "ALERT | $date | {$ClientIpAddress} | $msg \n";
+        $log = "ALERT | $date | " . Functions::getClientIp() . " | $msg \n";
 
         error_log($log, 3, self::USER_ALERTS_DIR);
     }

@@ -63,8 +63,8 @@ class Router
     {
         global $ENV_VARS;
 
-        dump_group('Environment', 'Environment');
-        dumpsection($ENV_VARS, 'ENV_VARS');
+        Dump::getInstance()->dump_group('Environment', 'Environment');
+        Dump::getInstance()->dumpsection($ENV_VARS, 'ENV_VARS');
 
         extract($route);
         if (is_callable($callback)) {
@@ -76,8 +76,8 @@ class Router
             $clase =  $callback["class"];
             $metodo = $callback["method"];
 
-            dump_group('Controller', 'Controller');
-            dumpsection( $callback, 'Callback');
+            Dump::getInstance()->dump_group('Controller', 'Controller');
+            Dump::getInstance()->dumpsection( $callback, 'Callback');
             
             $obj = new ($clase)();
 

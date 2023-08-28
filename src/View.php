@@ -2,9 +2,6 @@
 namespace Nigromante\Framework;
 
 
-use Framework\ViewData;
-
-
 class View
 {
 

@@ -1,18 +1,9 @@
 <?php
+
 namespace Nigromante\Framework;
 
 
-class Dump
-{
-    private static $instance;
-    private $values;
-    private $current_group;
-
-    protected function __construct()
-    {
-        $this->current_group = "default";
-        $this->values = [];
-    }
+final class Dump  extends DumpCore {
 
     public static function getInstance(): self
     {
@@ -23,32 +14,26 @@ class Dump
     }
 
 
-    public function setGroup($group = "default", $description = "")
+    public function dump($data, $title = "")
     {
-        $this->current_group = $group;
-        if (!isset($this->values[$group])) {
-            $this->values[$group] = ["description" => $description, "data" => []];
-        }
+        $this->setGroup();
+        $this->set($data, $title);
+    }
+
+    public function dump_group($group, $description = "")
+    {
+        $this->setGroup($group, $description);
     }
 
 
-    public function set($data, $title = '')
+    public function dumpsection($data, $title = "")
     {
-        $this->values[$this->current_group]["data"][$title] =  $data;
+        $this->set($data, $title);
     }
 
-    public function get($group = "default")
-    {
-        return $this->values[$group];
-    }
 
-    public function getData($group = "default")
+    public function getDump()
     {
-        return $this->values[$group]["data"];
-    }
-
-    public function getAll()
-    {
-        return $this->values;
+        return $this->getAll();
     }
 }

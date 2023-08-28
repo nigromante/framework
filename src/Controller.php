@@ -1,7 +1,5 @@
 <?php
 namespace Nigromante\Framework;
-use Nigromante\Framework\View;
-
 
 
 class Controller
@@ -22,8 +20,8 @@ class Controller
     public function View($viewName,  $data = [], $layout = 'default')
     {
 
-        dump_group('view', 'View');
-        dumpsection($layout, 'layout');
+        Dump::getInstance()->dump_group('view', 'View');
+        Dump::getInstance()->dumpsection($layout, 'layout');
 
 
         $data = array_merge($data, $this->globals);
@@ -31,7 +29,7 @@ class Controller
         $viewFile = $this->ViewFile($viewName);
 
         ob_start();
-        View::include($viewFile, $layout, $data, []);
+        View::include($viewFile, $layout, $data);
         $response = ob_get_clean();
 
         return  View::transform($response);
@@ -46,10 +44,10 @@ class Controller
 
         $aplication_name = array_pop($t);
 
-        dump_group('view', 'View');
-        dumpsection($aplication_name, 'aplication_name');
-        dumpsection($controller_name, 'controller_name');
-        dumpsection($viewName, 'viewName');
+        Dump::getInstance()->dump_group('view', 'View');
+        Dump::getInstance()->dumpsection($aplication_name, 'aplication_name');
+        Dump::getInstance()->dumpsection($controller_name, 'controller_name');
+        Dump::getInstance()->dumpsection($viewName, 'viewName');
 
 
         View::setApp($aplication_name);
