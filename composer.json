@@ -9,6 +9,8 @@
             "Nigromante\\Framework\\": "src/"
         }
     },
-    "require": {},
+    "require": {
+        "league/tactician": "^1.1"
+    },
     "minimum-stability": "stable" 
 }
