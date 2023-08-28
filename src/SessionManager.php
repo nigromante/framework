@@ -25,7 +25,7 @@ session_set_save_handler(
 session_name( "example" ) ;    
 session_start();
 */
-namespace Framework ; 
+namespace Nigromante\Framework;
 
 
 class SessionManager

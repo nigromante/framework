@@ -1,7 +1,6 @@
 <?php
-require_once "../vendor/autoload.php";
 
-date_default_timezone_set('America/Santiago');
+
 
 require_once "functions.php";
 

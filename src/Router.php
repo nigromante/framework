@@ -1,6 +1,6 @@
 <?php
+namespace Nigromante\Framework;
 
-namespace Framework;
 
 use \Exception;
 

@@ -1,6 +1,9 @@
 <?php
 
-namespace Framework;
+namespace Nigromante\Framework;
+
+use Nigromante\Framework\FileLog;
+use Nigromante\Framework\Router;
 
 
 class Application

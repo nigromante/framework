@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace Nigromante\Framework;
 
 
 class Event

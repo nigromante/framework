@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\crypt;
+namespace Nigromante\Framework\crypt;
 
 class CryptNothing implements CryptInterface 
 {

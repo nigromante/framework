@@ -1,8 +1,8 @@
 <?php
+namespace Nigromante\Framework;
+use Nigromante\Framework\View;
 
-namespace Framework;
 
-use Framework\View;
 
 class Controller
 {
